@@ -27,6 +27,8 @@ Image is the read-only template that tells us how the container will be realized
 1. Define and run multi-container applications.
 2. Define using YAML files.
 3. Run using the docker CLI with the compose plugin `Docker compose`.
+4. Set Resource Limits (e.g. CPU, Memory) and Environment Variables, Restart Policy.
+5. Use for Networking, Dependencies.
 
     ### Use Cases
     1. Workloads that don't require a full orchestrator.
