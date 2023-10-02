@@ -22,9 +22,21 @@ Image is the read-only template that tells us how the container will be realized
 
 > docker run ....
 
+## Docker Compose
+
+1. Define and run multi-container applications.
+2. Define using YAML files.
+3. Run using the docker CLI with the compose plugin `Docker compose`.
+
+    ### Use Cases
+    1. Workloads that don't require a full orchestrator.
+    2. Development and tests locally.
+    3. Use of a service that can run Docker-compose files.
+
 # YAML
 
 1. Human friendly data serialization standard.
 2. Used by Docker-Compose and Kubernetes.
-3. 
+3. A superset of JSON.
+
 
