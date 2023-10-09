@@ -101,7 +101,7 @@ Image is the read-only template that tells us how the container will be realized
     ### CLI
     1. `kubectl` communicates with the apiserver.
     2. Configuration stored locally. <br>
-        a. ${HOME}/,kube/config <br>
+        a. ${HOME}/.kube/config <br>
         b. C:\Users\ {USER}\ .kube\config.
     
     ### Context
