@@ -9,7 +9,7 @@ Image is the read-only template that tells us how the container will be realized
 ### Container
 
 1. Container is the runtime instance of an image that gets created.
-2. Containers are ephemerous and stateless. Don't store data here.
+2. Containers are ephemerous and stateless. Don't store data here. (refer to StatefulSet to deal with this, however, a better approach could be to use the Cloud provider database services)
 
 
 ### Container Registries
@@ -93,7 +93,7 @@ Image is the read-only template that tells us how the container will be realized
         e. Containers within a pod share IP address space, mounted volumes, and communicate via Localhost, IPC.<br>
         f. Ephemeral (short lived).<br>
         g. Deploying a pod is an atomic operation.<br>
-        h. If it fails, it is repalced with a new one with a shiny new IP address.<br>
+        h. If it fails, it is replaced with a new one with a shiny new IP address.<br>
         i. We don't update a pod, we replace it with an updated version.<br>
         j. We scale by adding more pods, not more containers in the pod.
 
@@ -108,5 +108,35 @@ Image is the read-only template that tells us how the container will be realized
     1. A context is a group of access parameters to a K8s cluster.
     2. Contains a kubernetes cluster, a user, and a namespace.
     3. The current context is the cluster that is currently the default for kubectl. <br>
-        a. All kubectl commands run against that cluster. <br>
+        a. All `kubectl` commands run against that cluster. <br>
      
+     ### Workloads
+     1. A workload is an application running on kubernetes.
+     2. A Pod is the atomic workload.
+     3. StatefulSet<br>
+        a. Designed for Pods that must persist or maintain state. <br>
+        b. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods.<br>
+        c. Each has a *persistent* identifier (name-x)<br>
+        d. If a pod dies, it is replaced with another one using the *same* identifier.<br>
+        e. Creates a series of pods in sequence from 0 to X and deletes them from X to 0. <br>
+        f. Typically used in stable, unique network identifiers and stable, databases using persistent storage. <br>
+        g. Deleting a StatefulSet will not delete the PVCs (PersistentVolume Claims), it has to be done manually. <br>
+     4. DaemonSet <br>
+        a. Specialised workload that ensures all Nodes (or a subset) run an instance of a Pod. <br>
+        b. Scheduled by the scheduler controller and run by the daemon controller. <br>
+        c. Typically used in running a logs collection daemon on every node or running a node monitoring daemon on every node. <br>
+     5. ReplicaSets <br>
+        a. Primary method of managing pod replicas and their lifecycle to provide self-healing capabilities.<br>
+        b. Their job is to always ensure the desired number of pods are running.<br>
+        c. Provides self-healing and scalability functionality. <br>
+        d. While we can create ReplicaSets, the recommended way is to create Deployments.<br>
+     6. Deployments <br>
+        a. A deployment manages a single pod template.<br>
+        b. A deployment for each microservice.<br>
+        c. Deployments create ReplicaSets in the background.<br>
+        d. We don't interact with the ReplicaSets directly. <br>
+        e. Provides rolling updates (cycle through updating pods) and rollbacks functionality. <br>
+     7. Jobs and CronJobs
+
+     ### Services
+     1. 
