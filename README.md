@@ -1,5 +1,9 @@
 # Practices and Learnings for Docker and Kubernetes
 
+## Acknowledgement
+
+Exercises and notes were referenced from [here](https://github.com/K8sAcademy/Fundamentals-HandsOn).
+
 ## Docker
 
 ### Image
