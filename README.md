@@ -209,8 +209,11 @@ Exercises and notes were referenced from [here](https://github.com/K8sAcademy/Fu
     #### ClusterIP
     1. Default service in kubernetes.
     2. Visibility
+
         a. CLuster internal
+
     3. Port
+    
         a. The port the service is listening to.
 
     4. TargetPort
